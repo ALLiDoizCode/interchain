@@ -1,12 +1,9 @@
 const db = require('../Database')
 
 var accountSchema = new db.mongoose.Schema({
-    xrpAddress:String,
-    ethAddress:String,
-    xrpChannel:String,
-    ethChannel:String,
-    xrpClaim:String,
-    ethClaim:String
+    channel:String,
+    address:String,
+    ledger:String
 });
 
 var Account = db.mongoose.model('Account', accountSchema);

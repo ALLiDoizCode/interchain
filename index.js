@@ -22,34 +22,3 @@ app.get('/info', function (req, res) {
 app.listen(3000, function () {
     console.log("Started on PORT 3000");
 })
-
-
-setTimeout(() => {
-    currency.updateXRPUSD((obj) => {
-        //console.log(obj)
-    })
-},3000)
-
-setTimeout(() => {
-    currency.updateETHUSD((obj) => {
-        //console.log(obj)
-    })
-},6000)
-
-setTimeout(() => {
-    currency.updateEOSUSD((obj) => {
-        //console.log(obj)
-    })
-},9000)
-
-setTimeout(() => {
-    currency.updateBTCUSD((obj) => {
-        //console.log(obj)
-    })
-},12000)
-
-setTimeout(() => {
-    currency.find((obj) => {
-        console.log(obj)
-    })
-},15000)

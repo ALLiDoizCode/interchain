@@ -1,14 +1,16 @@
 const db = require('../Database')
+var exports = module.exports = {};
 
 var accountSchema = new db.mongoose.Schema({
     channel:String,
     address:String,
+    hash:String,
     ledger:String
 });
 
 var Account = db.mongoose.model('Account', accountSchema);
 
-const saveAccount= (obj, callback) => {
+const saveAccount = (obj, callback) => {
 
     var newAccount = new Account(obj);
 
@@ -33,3 +35,27 @@ exports.updateAccount = updateAccount
 exports.saveAccount = saveAccount
 exports.findAccount = findAccount
 exports.find = find
+
+
+var destinationSchema = new db.mongoose.Schema({
+    channel:String,
+    address:String,
+    hash:String,
+    ledger:String
+});
+
+var Destination = db.mongoose.model('destination', destinationSchema);
+
+const saveDestination = (obj, callback) => {
+
+    var newDestination = new Destination(obj);
+
+    newDestination.save(callback);
+}
+
+const findDestination = (address,callback) => {
+    Destination.find({address:address}, callback)
+}
+
+exports.saveDestination = saveDestination
+exports.findDestination = findDestination

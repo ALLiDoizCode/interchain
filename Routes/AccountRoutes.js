@@ -15,28 +15,18 @@ exports.newAccount = async (req, res) => {
         ledger: ledger
     }
 
-    accountServices.saveAccount(account, (err,obj) => {
+    accountServices.saveAccount(account, (err, obj) => {
         console.log(obj)
-        
+
     })
 };
 
 
 
-/*
 
-ETH.open(wallet, ethAddress, "1.235486", 60, 20000000000, 4712388, (contract, address, hash) => {
-            Alice.sending = address
-            Bob.receiving = address
-        }, (contract, address, hash) => {
-            console.log(address)
-            console.log(hash)
-        }, (err) => {
-            error(err)
-            console.log(err)
-        })
 
-*/
+
+
 
 /*exports.fundETH = async (req, res) => {
 

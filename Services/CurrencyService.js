@@ -10,14 +10,14 @@ var currencySchema = new db.mongoose.Schema({
     high: String,
     volume: String,
     timestamp: String,
-    type: String
+    currency: String
 });
 var currency = db.mongoose.model('currency', currencySchema);
 
 exports.saveXRPUSD = (callback) => {
     axios.get('https://api.bitfinex.com/v1/pubticker/xrpusd').then((obj) => {
         var data = obj.data
-        data.type = "xrp"
+        data.currency = "xrp"
         var newRate = new currency(data);
 
         newRate.save((err, obj) => {
@@ -28,7 +28,7 @@ exports.saveXRPUSD = (callback) => {
 }
 exports.updateXRPUSD = (callback) => {
     axios.get('https://api.bitfinex.com/v1/pubticker/xrpusd').then((obj) => {
-        var query = { type: "xrp" };
+        var query = { currency: "xrp" };
         currency.update(query, obj.data, {}, (err, obj) => {
             if (err) return console.error(err);
             callback(obj)
@@ -39,7 +39,7 @@ exports.updateXRPUSD = (callback) => {
 exports.saveETHUSD = (callback) => {
     axios.get('https://api.bitfinex.com/v1/pubticker/ethusd').then((obj) => {
         var data = obj.data
-        data.type = "eth"
+        data.currency = "eth"
         var newRate = new currency(data);
         newRate.save((err, obj) => {
             if (err) return console.error(err);
@@ -51,7 +51,7 @@ exports.saveETHUSD = (callback) => {
 
 exports.updateETHUSD = (callback) => {
     axios.get('https://api.bitfinex.com/v1/pubticker/ethusd').then((obj) => {
-        var query = { type: "eth" };
+        var query = { currency: "eth" };
         currency.update(query, obj.data, {}, (err, obj) => {
             if (err) return console.error(err);
             callback(obj)
@@ -62,7 +62,7 @@ exports.updateETHUSD = (callback) => {
 exports.saveEOSUSD = (callback) => {
     axios.get('https://api.bitfinex.com/v1/pubticker/eosusd').then((obj) => {
         var data = obj.data
-        data.type = "eos"
+        data.currency = "eos"
         var newRate = new currency(data);
         newRate.save((err, obj) => {
             if (err) return console.error(err);
@@ -72,7 +72,7 @@ exports.saveEOSUSD = (callback) => {
 }
 exports.updateEOSUSD = (callback) => {
     axios.get('https://api.bitfinex.com/v1/pubticker/eosusd').then((obj) => {
-        var query = { type: "eos" };
+        var query = { currency: "eos" };
         currency.update(query, obj.data, {}, (err, obj) => {
             if (err) return console.error(err);
             callback(obj)
@@ -85,7 +85,7 @@ exports.saveBTCUSD = (callback) => {
 
     axios.get('https://api.bitfinex.com/v1/pubticker/btcusd').then((obj) => {
         var data = obj.data
-        data.type = "btc"
+        data.currency = "btc"
         var newRate = new currency(data);
         newRate.save((err, obj) => {
             if (err) return console.error(err);
@@ -98,7 +98,7 @@ exports.saveBTCUSD = (callback) => {
 exports.updateBTCUSD = (callback) => {
 
     axios.get('https://api.bitfinex.com/v1/pubticker/btcusd').then((obj) => {
-        var query = { type: "btc" };
+        var query = { currency: "btc" };
         currency.update(query, obj.data, {}, (err, obj) => {
             if (err) return console.error(err);
             callback(obj)

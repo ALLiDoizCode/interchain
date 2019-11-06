@@ -14,7 +14,7 @@
     "body-parser": "^1.19.0",
     "eth-paymentchannel": "github:b20160/ETH-PaymentChannel",
     "express": "^4.17.1",
-    "mongoose": "^5.7.4",
+    "mongoose": "^5.7.5",
     "xrp-paymentchannel": "github:b20160/XRP-PaymentChannel",
     "xrp-se-l2": "github:b20160/XRP-SE-L2"
   }
